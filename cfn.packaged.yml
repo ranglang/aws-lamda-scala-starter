@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Hello World Stack for a AWS Lambdas using Java and NodeJS.
+Resources:
+  JavaFunction:
+    Properties:
+      CodeUri: s3://lqiong/b888575e21ea09f5e4d2885cd3d0ca53
+      Events:
+        GetJavaResource:
+          Properties:
+            Method: get
+            Path: /java
+          Type: Api
+      Handler: io.github.yeghishe.scalaawslambdaseed.MyHandler
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      Runtime: java8
+      Timeout: 10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
